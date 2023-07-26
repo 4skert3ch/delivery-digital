@@ -136,7 +136,7 @@ const produtos = [
   { 
     nome: "BATATA FRITA / Inteira",
     preco: 3300,
-    imagemUrl: "https://th.bing.com/th/id/OIP.ArKgNgOUJaOYzBO1mV3OiAHaEY?pid=ImgDet&rs=1  "
+    imagemUrl: "https://th.bing.com/th/id/OIP.LkjpcBTtSb91JgHvuNolLAHaE7?pid=ImgDet&rs=1"
   },
   { 
     nome: "Coca-Cola 1,5L",
