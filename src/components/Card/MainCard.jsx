@@ -88,37 +88,37 @@ const MainCard = () => {
 
 const produtos = [
   { 
-    nome: "PORÇÃO PEROLAS/ Meia",
+    nome: "PORÇÃO / Meia",
     descricao: "Alcatra, frango, calabresa, fritas, farofa, pepino e pão com queijo",
     preco: 7600,
-    imagemUrl: "https://i.ibb.co/h2Xvfrw/perolasmeia.png"
+    imagemUrl: "https://th.bing.com/th/id/OIP.ade_zws1Q_aHdK3qYCCdFgHaE8?pid=ImgDet&rs=1"
   },
   { 
     nome: "X-Calabresa",
     descricao: "Calabresa, hambúger, queijo, alface, tomate, pepino, milho e ervilha",
     preco: 2500,
-    imagemUrl: "https://i.ibb.co/wg0G5bc/xcalabresa.png"
+    imagemUrl: "https://th.bing.com/th/id/OIP.1WLeEc6y7L4qeADu4jEFvgHaE8?pid=ImgDet&rs=1"
   },
   { 
     nome: "X-Frango",
     descricao: "Frango, queijo, alface, tomate, pepino, milho e ervilha",
     preco: 2399,
-    imagemUrl: "https://i.ibb.co/fDP2FV9/xfrango.png"
+    imagemUrl: "https://th.bing.com/th/id/OIP.ym3M4ybCDW1pYpPmGHsN8wHaEj?pid=ImgDet&rs=1"
   },
   { 
     nome: "X-Bacon",
     descricao: "Hambúrguer, bacon, queijo, preseunto, alface, tomate, pepino, milho e ervilha",
     preco: 2600,
-    imagemUrl: "https://i.ibb.co/1R3mbsz/xbacon.png"
+    imagemUrl: "https://th.bing.com/th/id/OIP.AvI5N2smm4X9PxxJjGPGJgHaEn?pid=ImgDet&rs=1"
   },
   { 
     nome: "X-Alcatra",
     descricao: "Alcatra, queijo, alface, tomate, pepino, milho e ervilha",
     preco: 2900,
-    imagemUrl: "https://i.ibb.co/JxLz743/xalcatra.png"
+    imagemUrl: "https://th.bing.com/th/id/R.e95e4719720dce518b8628ac2bfc3348?rik=YXTOigeMXwKDxA&riu=http%3a%2f%2fblog.tnh1.com.br%2fnidelins%2fwp-content%2fuploads%2f2014%2f08%2fmontagu%c2%b4s5.jpg&ehk=SITnAVl0C%2bcDi0KFpw1BmmGTz5cdYruO%2fpanIvMzjGE%3d&risl=&pid=ImgRaw&r=0"
   },
   { 
-    nome: "Porção pérolas inteira",
+    nome: "PORÇÃO / Inteira",
     descricao: "PORÇÃO PÉROLAS/ Inteira",
     preco: 9800,
     imagemUrl: "https://i.ibb.co/wBPkFVY/perolasinteira.png"
@@ -131,7 +131,7 @@ const produtos = [
   { 
     nome: "BATATA FRITA / Inteira",
     preco: 3300,
-    imagemUrl: "https://i.ibb.co/QPB63d0/batatinteira.png"
+    imagemUrl: "https://th.bing.com/th/id/OIP.ArKgNgOUJaOYzBO1mV3OiAHaEY?pid=ImgDet&rs=1"
   },
   { 
     nome: "Coca-Cola 1,5L",
