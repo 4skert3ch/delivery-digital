@@ -50,35 +50,40 @@ const MainCard = () => {
       <ModalConfirmar carrinho={carrinho} totalAPagar={totalAPagar} setTotalAPagar={setTotalAPagar} setCarrinho={setCarrinho} />
       <Navbar totalAPagar={totalAPagar} setTotalAPagar={setTotalAPagar} setCarrinho={setCarrinho} />
       <Main>
-        <h2>{nomesDasPaginas[paginaAtual - 1]}</h2>
-        <Paginacao
+      <Paginacao
           totalItens={produtos.length}
           itensPorPagina={produtosPorPagina}
           paginaAtual={paginaAtual}
           onChangePagina={handleChangePagina}
         />
-        {/* Renderiza os cards de produto da página atual e passa a função de adicionar ao carrinho */}
-        {listaProdutosPaginados.map((produto, index) => (
-          <div key={index} className="card" style={{ width: "18rem", display: "inline-block", margin: "5px" }}>
-            <img src={produto.imagemUrl} loading="lazy" className="card-img-top" alt="Product" />
-            <div className="card-body">
-              <h5 className="card-title">{produto.nome}</h5>
-              <p className="card-text">{produto.descricao}</p>
-              <p className="card-text">{`R$${(produto.preco / 100).toFixed(2)}`}</p>
-              <button className="btn btn-primary" onClick={() => adicionarAoCarrinho(produto)}>
-                Adicionar no carrinho
-              </button>
+        <h2>{nomesDasPaginas[paginaAtual - 1]}</h2>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+          {/* Renderiza os cards de produto da página atual e passa a função de adicionar ao carrinho */}
+          {listaProdutosPaginados.map((produto, index) => (
+            <div key={index} className="card" style={{ width: "250px" }}>
+              <img
+                src={produto.imagemUrl}
+                loading="lazy"
+                className="card-img-top"
+                alt="Product"
+                style={{ height: "200px", objectFit: "cover" }}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{produto.nome}</h5>
+                <p className="card-text">{produto.descricao}</p>
+                <p className="card-text">{`R$${(produto.preco / 100).toFixed(2)}`}</p>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => adicionarAoCarrinho(produto)}
+                >
+                  Adicionar no carrinho
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {/* Renderiza a Paginacao com o total de produtos e a página atual */}
-        <Paginacao
-          totalItens={produtos.length}
-          itensPorPagina={produtosPorPagina}
-          paginaAtual={paginaAtual}
-          onChangePagina={handleChangePagina}
-        />
       </Main>
     </>
   );
@@ -168,7 +173,7 @@ const produtos = [
     nome: "Água mineral",
     descricao: "Description of the product goes here.",
     preco: 400,
-    imagemUrl: "https://inovaralimentos.com.br/imagens/20200611_5ee274cdb4ba9.jpg"
+    imagemUrl: "https://th.bing.com/th/id/OIP.6CDUqpv9Hk8e3_5s9ImjUQHaNn?pid=ImgDet&rs=1"
   },
   // Adicione caminhos relativos para as imagens dos demais produtos conforme necessário
 ];
