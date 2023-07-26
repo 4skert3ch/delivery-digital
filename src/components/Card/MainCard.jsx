@@ -121,7 +121,7 @@ const produtos = [
     nome: "PORÇÃO / Inteira",
     descricao: "PORÇÃO PÉROLAS/ Inteira",
     preco: 9800,
-    imagemUrl: "https://i.ibb.co/wBPkFVY/perolasinteira.png"
+    imagemUrl: "https://th.bing.com/th/id/OIP.wSYDezrpVMgaw-oM5nHxMwHaDz?pid=ImgDet&rs=1"
   },
   { 
     nome: "BATATA FRITA / Meia",
@@ -131,7 +131,7 @@ const produtos = [
   { 
     nome: "BATATA FRITA / Inteira",
     preco: 3300,
-    imagemUrl: "https://th.bing.com/th/id/OIP.ArKgNgOUJaOYzBO1mV3OiAHaEY?pid=ImgDet&rs=1"
+    imagemUrl: "https://th.bing.com/th/id/OIP.ArKgNgOUJaOYzBO1mV3OiAHaEY?pid=ImgDet&rs=1  "
   },
   { 
     nome: "Coca-Cola 1,5L",
