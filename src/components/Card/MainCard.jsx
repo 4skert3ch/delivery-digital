@@ -87,24 +87,22 @@ const MainCard = () => {
                   <p className="card-text">{`R$${(produto.preco / 100).toFixed(2)}`}</p>
                   <div className="d-flex flex-column align-items-center">
                     <button
-                      className="btn btn-primary btn-sm"
+                      className="btn btn-primary btn-sm col-12"
                       onClick={() => adicionarAoCarrinho(produto)}
                     >
-                      Adicionar no carrinho
+                      Adicionar
                     </button>
                     {quantidadeNoCarrinho > 0 && (
-                      <div className="d-flex align-items-center mt-2">
                         <button
-                          className="btn btn-danger btn-sm"
+                          className="btn btn-danger mt-2 btn-sm col-12"
                           onClick={() => removerUmDoCarrinho(produto)}
                         >
                           Remover
                         </button>
-                      </div>
                     )}
-                        <span style={{ marginLeft: "5px", marginRight: "5px" }}>
+                        <strong className="btn btn-secondary mt-2 btn-sm col-12" style={{ marginLeft: "5px", marginRight: "5px" }}>
                           Quantidade: {quantidadeNoCarrinho}
-                        </span>
+                        </strong>
                   </div>
                 </div>
               </div>
