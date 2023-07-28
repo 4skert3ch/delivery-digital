@@ -28,7 +28,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
         setCarrinho(novoCarrinho);
         setTotalAPagar(
           (prevTotal) =>
-            prevTotal + n.preco * (quantidade - produtoExistente.quantidade)
+            prevTotal + produto.preco * (quantidade - produtoExistente.quantidade)
         );
       }
     }
