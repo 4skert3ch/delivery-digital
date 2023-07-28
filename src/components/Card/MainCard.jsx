@@ -60,20 +60,15 @@ const MainCard = () => {
       <ModalConfirmar carrinho={carrinho} totalAPagar={totalAPagar} setTotalAPagar={setTotalAPagar} setCarrinho={setCarrinho} />
       <Navbar totalAPagar={totalAPagar} setTotalAPagar={setTotalAPagar} setCarrinho={setCarrinho} />
       <Main>
-        <Paginacao
-          totalItens={produtos.length}
-          itensPorPagina={produtosPorPagina}
-          paginaAtual={paginaAtual}
-          onChangePagina={handleChangePagina}
-        />
+        {/* ... (existing code) */}
         <h2>{nomesDasPaginas[paginaAtual - 1]}</h2>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+        <div className="d-flex flex-wrap gap-3">
           {listaProdutosPaginados.map((produto, index) => {
             const produtoExistente = carrinho.find((item) => item.nome === produto.nome);
             const quantidadeNoCarrinho = produtoExistente ? produtoExistente.quantidade : 0;
 
             return (
-              <div key={index} className="card" style={{ width: "250px" }}>
+              <div key={index} className="card col-md-6 col-lg-4 col-xl-3">
                 <img
                   src={produto.imagemUrl}
                   loading="lazy"
@@ -87,22 +82,24 @@ const MainCard = () => {
                   <p className="card-text">{`R$${(produto.preco / 100).toFixed(2)}`}</p>
                   <div className="d-flex flex-column align-items-center">
                     <button
-                      className="btn btn-primary btn-sm col-12"
+                      className="btn btn-primary btn-sm col-8 col-md-6"
                       onClick={() => adicionarAoCarrinho(produto)}
                     >
                       Adicionar
                     </button>
                     {quantidadeNoCarrinho > 0 && (
+                      <div className="d-flex align-items-center mt-2">
                         <button
-                          className="btn btn-danger mt-2 btn-sm col-12"
+                          className="btn btn-danger btn-sm col-8 col-md-6"
                           onClick={() => removerUmDoCarrinho(produto)}
                         >
                           Remover
                         </button>
-                    )}
-                        <strong className="btn btn-secondary mt-2 btn-sm col-12" style={{ marginLeft: "5px", marginRight: "5px" }}>
-                          Quantidade: {quantidadeNoCarrinho}
+                        <strong className="btn btn-secondary btn-sm col-4 col-md-6" style={{ marginLeft: "5px", marginRight: "5px" }}>
+                          x {quantidadeNoCarrinho}
                         </strong>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
