@@ -89,7 +89,7 @@ const MainCard = () => {
                     </button>
                     {quantidadeNoCarrinho > 0 && (
                       <div className="d-flex align-items-center mt-2">
-                        <button
+                        <butto
                           className="btn btn-danger btn-sm col-8 col-md-6"
                           onClick={() => removerUmDoCarrinho(produto)}
                         >
