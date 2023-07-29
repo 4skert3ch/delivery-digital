@@ -60,6 +60,12 @@ const MainCard = () => {
       <ModalConfirmar carrinho={carrinho} totalAPagar={totalAPagar} setTotalAPagar={setTotalAPagar} setCarrinho={setCarrinho} />
       <Navbar totalAPagar={totalAPagar} setTotalAPagar={setTotalAPagar} setCarrinho={setCarrinho} />
       <Main>
+      <Paginacao
+          totalItens={produtos.length}
+          itensPorPagina={produtosPorPagina}
+          paginaAtual={paginaAtual}
+          onChangePagina={handleChangePagina}
+        />
         {/* ... (existing code) */}
         <h2>{nomesDasPaginas[paginaAtual - 1]}</h2>
         <div className="d-flex flex-wrap gap-3">
