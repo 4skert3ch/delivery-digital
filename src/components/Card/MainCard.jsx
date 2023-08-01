@@ -58,7 +58,7 @@ const MainCard = () => {
   const estaAberto = () => {
     const dataAtual = new Date();
     const horaAtual = dataAtual.getHours();
-    const horaAbertura = 6; // Replace 8 with the actual opening hour
+    const horaAbertura = 18; // Replace 8 with the actual opening hour
     const horaFechamento = 21; // Replace 22 with the actual closing hour
     return horaAtual >= horaAbertura && horaAtual <= horaFechamento;
   };
