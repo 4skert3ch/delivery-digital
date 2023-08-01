@@ -32,7 +32,6 @@ a {
 
 #backContador {
     height: 1vb;
-    position: relative;
 }
 
 #backStatus{
@@ -44,5 +43,10 @@ a {
 #txtStatus{
     position: relative;
     top: 4px;
+}
+
+.contador {
+    position: relative;
+    top: -10%;
 }
 

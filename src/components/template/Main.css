@@ -4,3 +4,8 @@ main > div {
     position: relative;
     top: 27px;
 }
+
+#mainBody {
+    position: relative;
+    top: 0.7%;
+}
