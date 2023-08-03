@@ -7,13 +7,16 @@ import ModalConfirmar from "../Modals/ModalConfirmar";
 const MainCard = () => {
   const [totalAPagar, setTotalAPagar] = useState(0);
   const [carrinho, setCarrinho] = useState([]);
-  const [paginaAtual, setPaginaAtual] = useState(1); // Estado para controlar a página atual
-  const produtosPorPagina = 8; // Defina o número de produtos por página
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const produtosPorPagina = 8;
+  const horaAbertura = 18; // Replace 8 with the actual opening hour
+  const horaFechamento = 21; // Replace 22 with the actual closing hour
 
   const nomesDasPaginas = ["Comida", "Bebidas", "Hotdog"];
+  const horaAtual = new Date().getHours();
+  const isAberto = horaAtual >= horaAbertura && horaAtual <= horaFechamento;
 
   useEffect(() => {
-    // Atualiza o título da página quando a página atual muda
     document.title = nomesDasPaginas[paginaAtual - 1];
   }, [paginaAtual, nomesDasPaginas]);
 
@@ -32,16 +35,9 @@ const MainCard = () => {
     setTotalAPagar((prevTotal) => prevTotal + produto.preco);
   };
 
-
   const handleChangePagina = (pagina) => {
     setPaginaAtual(pagina);
   };
-
-  // Cria uma lista de produtos paginados com base na página atual e no tamanho da página
-  const listaProdutosPaginados = produtos.slice(
-    (paginaAtual - 1) * produtosPorPagina,
-    paginaAtual * produtosPorPagina
-  );
 
   const removerUmDoCarrinho = (produto) => {
     const produtoExistente = carrinho.find((item) => item.nome === produto.nome);
@@ -55,15 +51,16 @@ const MainCard = () => {
     }
   };
 
-  const estaAberto = () => {
-    const dataAtual = new Date();
-    const horaAtual = dataAtual.getHours();
-    const horaAbertura = 18; // Replace 8 with the actual opening hour
-    const horaFechamento = 21; // Replace 22 with the actual closing hour
-    return horaAtual >= horaAbertura && horaAtual <= horaFechamento;
+  const handleFinalizarPedido = () => {
+    // Filtrar apenas os itens com quantidade maior que 0
+    const itensPedido = carrinho.filter((item) => item.quantidade > 0);
+    // Lógica para finalizar o pedido (enviar para o backend, exibir mensagem, etc.)
+    // Aqui, você pode implementar a lógica que desejar para finalizar o pedido com os itens selecionados.
+    console.log("Itens do pedido:", itensPedido);
+    // Após finalizar o pedido, limpar o carrinho e o total a pagar
+    setCarrinho([]);
+    setTotalAPagar(0);
   };
-
-  const isAberto = estaAberto();
 
   return (
     <>
@@ -72,24 +69,25 @@ const MainCard = () => {
         totalAPagar={totalAPagar}
         setTotalAPagar={setTotalAPagar}
         setCarrinho={setCarrinho}
+        onFinalizarPedido={handleFinalizarPedido}
+        isAberto={isAberto}
       />
       <Navbar
         totalAPagar={totalAPagar}
         setTotalAPagar={setTotalAPagar}
         setCarrinho={setCarrinho}
-        isAberto={isAberto} // Pass the result of the estaAberto function to isAberto prop
+        isAberto={isAberto}
       />
       <Main>
-      <Paginacao
+        <Paginacao
           totalItens={produtos.length}
           itensPorPagina={produtosPorPagina}
           paginaAtual={paginaAtual}
           onChangePagina={handleChangePagina}
         />
-        {/* ... (existing code) */}
         <h2>{nomesDasPaginas[paginaAtual - 1]}</h2>
         <div className="d-flex flex-wrap gap-3">
-          {listaProdutosPaginados.map((produto, index) => {
+          {produtos.slice((paginaAtual - 1) * produtosPorPagina, paginaAtual * produtosPorPagina).map((produto, index) => {
             const produtoExistente = carrinho.find((item) => item.nome === produto.nome);
             const quantidadeNoCarrinho = produtoExistente ? produtoExistente.quantidade : 0;
 

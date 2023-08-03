@@ -69,42 +69,44 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                 <input className="form-control" type="text" name="Endereço" id="recipient-endereco" required />
               </div>
               <div>
-                <h3>Lista de pedido</h3>
-                {carrinho.map((produto, index) => (
-                  <div key={index} className="form-group d-flex align-items-center justify-content-between">
-                    <div>
-                      <label htmlFor={`produto-${index}`} className="col-form-label">
-                        {produto.nome} - R${(produto.preco / 100).toFixed(2)}
-                      </label>
-                      <input type="hidden" name={`Produto `} value={`Quantidade >  ${produto.quantidade} | ${produto.nome} - R$${(produto.preco / 100).toFixed(2)} `} />
-                    </div>
-                    <div className="input-group">
-                      <button
-                        type="button"
-                        className="btn btn-sm btn-danger"
-                        onClick={() => handleChangeQuantidade(produto, produto.quantidade - 1)} 
-                      >
-                        -
-                      </button>
-                      <input
-                        className="form-control col-2"
-                        type="number"
-                        id={`produto-${index}`}
-                        value={produto.quantidade}
-                        onChange={(e) => handleChangeQuantidade(produto, parseInt(e.target.value))}
-                      />
-                      <button
-                        type="button"
-                        className="btn btn-sm btn-success"
-                        onClick={() => handleChangeQuantidade(produto, produto.quantidade + 1)}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-                ))}
-                <strong>Total a pagar: R${(totalAPagar / 100).toFixed(2)}</strong>
+        <h3>Lista de pedido</h3>
+        {carrinho.map((produto, index) => (
+          <div key={index} className="form-group d-flex align-items-center justify-content-between">
+            <div>
+              <label htmlFor={`produto-${index}`} className="col-form-label">
+                {produto.nome} - R${(produto.preco / 100).toFixed(2)}
+              </label>
+              <input type="hidden" name={`Produto `} value={`Quantidade >  ${produto.quantidade} | ${produto.nome} - R$${(produto.preco / 100).toFixed(2)} `} />
+            </div>
+            {produto.quantidade > 0 && (
+              <div className="input-group">
+                <button
+                  type="button"
+                  className="btn btn-sm btn-danger"
+                  onClick={() => handleChangeQuantidade(produto, produto.quantidade - 1)} 
+                >
+                  -
+                </button>
+                <input
+                  className="form-control col-2"
+                  type="number"
+                  id={`produto-${index}`}
+                  value={produto.quantidade}
+                  onChange={(e) => handleChangeQuantidade(produto, parseInt(e.target.value))}
+                />
+                <button
+                  type="button"
+                  className="btn btn-sm btn-success"
+                  onClick={() => handleChangeQuantidade(produto, produto.quantidade + 1)}
+                >
+                  +
+                </button>
               </div>
+            )}
+          </div>
+        ))}
+        <strong>Total a pagar: R${(totalAPagar / 100).toFixed(2)}</strong>
+      </div>
               <div className="form-group">
                 <label htmlFor="recipient-observacao" className="col-form-label">Observação</label>
                 <input className="form-control" type="text" name="Observação" id="recipient-observacao" />
