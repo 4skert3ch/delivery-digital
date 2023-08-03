@@ -46,6 +46,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
+            <input type="hidden" name="_subject" value="ENTREGA : Delivery" />
               <input type="hidden" name={`Valor a receber `} value={`R$${(totalAPagar / 100).toFixed(2)}`} />
               <div className="form-group">
                 <label htmlFor="recipient-name" className="col-form-label">Nome</label>
