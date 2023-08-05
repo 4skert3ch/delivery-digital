@@ -7,14 +7,30 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
 
   const [formaPagamento, setFormaPagamento] = useState(""); // Estado para a forma de pagamento
   const [troco, setTroco] = useState(""); // Estado para a quantidade de troco
+  const [mostrarTroco, setMostrarTroco] = useState(false);
 
   const handleFormaPagamentoChange = (event) => {
     setFormaPagamento(event.target.value);
+    setMostrarTroco(true); // Mostrar o campo de troco sempre que a forma de pagamento for "dinheiro"
   };
+
+  const handleNaoTemTrocoClick = () => {
+    setTroco("");
+    setMostrarTroco(false); // Esconder o campo de troco quando o botão "Sem Troco" for clicado
+  };
+
+  const handleComTrocoClick = () => {
+    setMostrarTroco(true); // Mostrar o campo de troco quando o botão "Com Troco" for clicado
+  };
+
+
+
 
   const handleTrocoChange = (values) => {
     setTroco(values.floatValue || ""); // Mantenha o valor vazio se for inválido
   };
+
+
 
   const valorZerado = totalAPagar === 0;
 
@@ -82,49 +98,56 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                 <select
                   className="form-control"
                   id="formaPagamento"
+                  name="Forma de Pagamento" // Adicione o nome do campo
                   value={formaPagamento}
                   onChange={handleFormaPagamentoChange}
                   required
                 >
                   <option value="">Selecione a forma de pagamento</option>
-                  <option value="dinheiro">
-                    <span className="icon">
-                      <i className="fas fa-money-bill"></i> {/* Ícone de dinheiro do Font Awesome */}
-                    </span>
-                    Dinheiro
-                  </option>
-                  <option value="cartao">
-                    <span class="fa fa-money" aria-hidden="true">
-                      <i className="fas fa-credit-card"></i> {/* Ícone de cartão do Font Awesome */}
-                    </span>
-                    Cartão
-                  </option>
-                  <option value="pix">
-                    <span className="icon">
-                      <i className="fas fa-qrcode"></i> {/* Ícone de Pix do Font Awesome */}
-                    </span>
-                    Pix
-                  </option>
+                  <option value="dinheiro">Dinheiro</option>
+                  <option value="cartao">Cartão</option>
+                  <option value="pix">Pix</option>
                 </select>
               </div>
               {formaPagamento === "dinheiro" && (
-                <div className="form-group">
-                  <label htmlFor="troco" className="col-form-label">Troco para</label>
-                  <div className="input-group">
-                    <span className="input-group-text">R$</span>
-                    <NumericFormat
-                      className="form-control"
-                      thousandSeparator="."
-                      decimalSeparator=","
-                      decimalScale={2}
-                      fixedDecimalScale={true}
-                      prefix=""
-                      allowNegative={false}
-                      value={troco}
-                      onValueChange={handleTrocoChange}
-                      required
-                    />
+                <div>
+                  <div className="form-group">
+                    {mostrarTroco && (
+                      <div className="input-group">
+                        <span className="input-group-text">R$</span>
+                        <NumericFormat
+                          className="form-control"
+                          thousandSeparator="."
+                          decimalSeparator=","
+                          decimalScale={2}
+                          fixedDecimalScale={true}
+                          prefix=""
+                          placeholder="Troco para..."
+                          allowNegative={false}
+                          value={troco}
+                          onValueChange={handleTrocoChange}
+                          required={mostrarTroco} // Defina a obrigatoriedade baseada em mostrarTroco
+                        />
+                      </div>
+                    )}
                   </div>
+                  {!mostrarTroco ? (
+                    <button
+                      type="button"
+                      className="btn btn-success"
+                      onClick={handleComTrocoClick}
+                    >
+                      Com Troco
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="btn btn-danger"
+                      onClick={handleNaoTemTrocoClick}
+                    >
+                      Sem Troco
+                    </button>
+                  )}
                 </div>
               )}
               <div className="form-group">
