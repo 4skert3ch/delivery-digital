@@ -4,33 +4,27 @@ import { NumericFormat } from "react-number-format";
 import './ModalConfirmar.css'
 
 const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) => {
-
-  const [formaPagamento, setFormaPagamento] = useState(""); // Estado para a forma de pagamento
-  const [troco, setTroco] = useState(""); // Estado para a quantidade de troco
-  const [mostrarTroco, setMostrarTroco] = useState(false);
+  const [formaPagamento, setFormaPagamento] = useState("");
+  const [troco, setTroco] = useState("");
+  const [mostrarTroco, setMostrarTroco] = useState(true);
 
   const handleFormaPagamentoChange = (event) => {
     setFormaPagamento(event.target.value);
-    setMostrarTroco(true); // Mostrar o campo de troco sempre que a forma de pagamento for "dinheiro"
+    setMostrarTroco(true);
   };
 
   const handleNaoTemTrocoClick = () => {
     setTroco("");
-    setMostrarTroco(false); // Esconder o campo de troco quando o botão "Sem Troco" for clicado
+    setMostrarTroco(false);
   };
 
   const handleComTrocoClick = () => {
-    setMostrarTroco(true); // Mostrar o campo de troco quando o botão "Com Troco" for clicado
+    setMostrarTroco(true);
   };
-
-
-
 
   const handleTrocoChange = (values) => {
-    setTroco(values.floatValue || ""); // Mantenha o valor vazio se for inválido
+    setTroco(values.floatValue || "");
   };
-
-
 
   const valorZerado = totalAPagar === 0;
 
@@ -39,14 +33,19 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
     setTotalAPagar(0);
   };
 
+  const formatarValorEmReais = (valor) => {
+    return valor.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+  };
+
   const handleChangeQuantidade = (produto, quantidade) => {
     quantidade = Math.max(quantidade, 0);
 
     if (quantidade === 0) {
-      // Remove the item from the cart when its quantity is zero
       const novoCarrinho = carrinho.filter((item) => item.nome !== produto.nome);
       setCarrinho(novoCarrinho);
-      // Subtract the price of the removed item from the total
       setTotalAPagar((prevTotal) => prevTotal - produto.preco * produto.quantidade);
     } else {
       const produtoExistente = carrinho.find((item) => item.nome === produto.nome);
@@ -98,7 +97,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                 <select
                   className="form-control"
                   id="formaPagamento"
-                  name="Forma de Pagamento" // Adicione o nome do campo
+                  name="Forma de Pagamento"
                   value={formaPagamento}
                   onChange={handleFormaPagamentoChange}
                   required
@@ -124,9 +123,9 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                           prefix=""
                           placeholder="Troco para..."
                           allowNegative={false}
-                          value={troco}
+                          value={formatarValorEmReais(troco)}
                           onValueChange={handleTrocoChange}
-                          required={mostrarTroco} // Defina a obrigatoriedade baseada em mostrarTroco
+                          required={mostrarTroco}
                         />
                       </div>
                     )}
@@ -147,6 +146,19 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                     >
                       Sem Troco
                     </button>
+                  )}
+                  {mostrarTroco && (
+                    <div className="form-group" style={{ display: "none" }}>
+                      <label htmlFor="troco" className="col-form-label">Troco para</label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        name="Troco para"
+                        id="troco"
+                        value={formatarValorEmReais(troco)}
+                        readOnly
+                      />
+                    </div>
                   )}
                 </div>
               )}
