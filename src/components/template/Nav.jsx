@@ -25,6 +25,7 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
           <a href="#/" className='col-12'>
             <div className="contador">
               <label id="backContador">Total a pagar<p id="contador" className="form-control">R${(totalAPagar / 100).toFixed(2)}</p></label>
+              <div href="https://www.google.com" class="floating-label">ÁSKER-TECH</div>
             </div>
           </a>
           <button type="button" className="btn btn-success col-6" data-bs-toggle="modal" data-bs-target="#modalConfirmar" id="btnRequest" disabled={valorZerado}>

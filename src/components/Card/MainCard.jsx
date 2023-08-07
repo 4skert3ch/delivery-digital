@@ -8,7 +8,7 @@ const MainCard = () => {
   const [totalAPagar, setTotalAPagar] = useState(0);
   const [carrinho, setCarrinho] = useState([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
-  const produtosPorPagina = 8;
+  const produtosPorPagina = 18;
   const horaAbertura = 18; // Replace 8 with the actual opening hour
   const horaFechamento = 21; // Replace 22 with the actual closing hour
 
@@ -98,8 +98,13 @@ const MainCard = () => {
                   loading="lazy"
                   className="card-img-top"
                   alt="Product"
-                  style={{ height: "200px", objectFit: "cover" }}
+                  style={{
+                    width: "100%",       // Preenche a largura do espaço disponível
+                    maxHeight: "300px",  // Define uma altura máxima para o card
+                    objectFit: "cover"   // Mantém a proporção e corta a imagem se necessário
+                  }}
                 />
+
                 <div className="card-body">
                   <h5 className="card-title">{produto.nome}</h5>
                   <p className="card-text">{produto.descricao}</p>
@@ -139,38 +144,49 @@ const MainCard = () => {
 
 const produtos = [
   {
-    nome: "PORÇÃO / Meia",
+    nome: "PORÇÃO PEROLAS / Meia",
     descricao: "Alcatra, frango, calabresa, fritas, farofa, pepino e pão com queijo",
     preco: 7600,
-    imagemUrl: "https://th.bing.com/th/id/OIP.ade_zws1Q_aHdK3qYCCdFgHaE8?pid=ImgDet&rs=1"
+    imagemUrl: "https://i.ibb.co/h2Xvfrw/perolasmeia.png"
   },
   {
     nome: "X-Calabresa",
     descricao: "Calabresa, hambúger, queijo, alface, tomate, pepino, milho e ervilha",
     preco: 2500,
-    imagemUrl: "https://th.bing.com/th/id/OIP.1WLeEc6y7L4qeADu4jEFvgHaE8?pid=ImgDet&rs=1"
+    imagemUrl: "https://i.ibb.co/wg0G5bc/xcalabresa.png"
   },
   {
     nome: "X-Frango",
     descricao: "Frango, queijo, alface, tomate, pepino, milho e ervilha",
     preco: 2399,
-    imagemUrl: "https://th.bing.com/th/id/OIP.ym3M4ybCDW1pYpPmGHsN8wHaEj?pid=ImgDet&rs=1"
+    imagemUrl: "https://i.ibb.co/fDP2FV9/xfrango.png"
   },
   {
     nome: "X-Bacon",
+    descricao: "Coração, queijo, alface, tomate, pepino, milho e ervilha",
+    preco: 2900,
+    imagemUrl: "https://i.ibb.co/1R3mbsz/xbacon.png"
+  },
+  {
+    nome: "X-Coração",
     descricao: "Hambúrguer, bacon, queijo, preseunto, alface, tomate, pepino, milho e ervilha",
     preco: 2600,
-    imagemUrl: "https://th.bing.com/th/id/OIP.AvI5N2smm4X9PxxJjGPGJgHaEn?pid=ImgDet&rs=1"
+    imagemUrl: "https://i.ibb.co/x3CyYg7/xcoracao.png"
   },
   {
     nome: "X-Alcatra",
     descricao: "Alcatra, queijo, alface, tomate, pepino, milho e ervilha",
     preco: 2900,
-    imagemUrl: "https://th.bing.com/th/id/R.e95e4719720dce518b8628ac2bfc3348?rik=YXTOigeMXwKDxA&riu=http%3a%2f%2fblog.tnh1.com.br%2fnidelins%2fwp-content%2fuploads%2f2014%2f08%2fmontagu%c2%b4s5.jpg&ehk=SITnAVl0C%2bcDi0KFpw1BmmGTz5cdYruO%2fpanIvMzjGE%3d&risl=&pid=ImgRaw&r=0"
+    imagemUrl: "https://i.ibb.co/JxLz743/xalcatra.png"
   },
   {
-    nome: "PORÇÃO / Inteira",
-    descricao: "PORÇÃO PÉROLAS/ Inteira",
+    nome: "X-EGG",
+    descricao: "Ovo, hambúrguer, queijo, presunto, alface, tomate, pepino, milho e ervilha",
+    preco: 2900,
+    imagemUrl: "https://i.ibb.co/TLPhJzc/xegg.png"
+  },
+  {
+    nome: "PORÇÃO PEROLAS / Inteira",
     preco: 9800,
     imagemUrl: "https://th.bing.com/th/id/OIP.wSYDezrpVMgaw-oM5nHxMwHaDz?pid=ImgDet&rs=1"
   },
@@ -184,6 +200,55 @@ const produtos = [
     preco: 3300,
     imagemUrl: "https://th.bing.com/th/id/OIP.LkjpcBTtSb91JgHvuNolLAHaE7?pid=ImgDet&rs=1"
   },
+
+  {
+    nome: "MISTO QUENTE",
+    descricao: "Queijo e presunto",
+    preco: 1500,
+    imagemUrl: "https://i.ibb.co/jrh8VFj/Captura-de-tela-2023-08-07-170250.png"
+  },
+  {
+    nome: "DOG TRADICIONAL",
+    descricao: "Salsicha, milho, ervilha e batata palha.",
+    preco: 1900,
+    imagemUrl: "https://i.ibb.co/F8K8cMh/Captura-de-tela-2023-08-07-170506.png"
+  },
+  {
+    nome: "DOG CALABRESA",
+    descricao: "Salsicha, calabresa, milho, ervilha e batata palha.",
+    preco: 2500,
+    imagemUrl: "https://i.ibb.co/vmHJF60/Captura-de-tela-2023-08-07-170334.png"
+  },
+  {
+    nome: "DOG BACON",
+    descricao: "Salsicha, bacon, milho, ervilha, e batata palha",
+    preco: 2600,
+    imagemUrl: "https://i.ibb.co/S3mN5Jw/Captura-de-tela-2023-08-07-170354.png"
+  },
+  {
+    nome: "DOG FRANGO",
+    descricao: "Salsicha, frango, milho, ervilha, e bata palha",
+    preco: 2600,
+    imagemUrl: "https://i.ibb.co/Vg20fkm/Captura-de-tela-2023-08-07-170435.png"
+  },
+  {
+    nome: "DOG PIZZA",
+    descricao: "Salsicha, presunto, queijo, catupiry, tomate, orégano, milho, ervilha e batata palha",
+    preco: 2800,
+    imagemUrl: "https://i.ibb.co/z6kz069/Captura-de-tela-2023-08-07-170314.png"
+  },
+  {
+    nome: "Dog pérolas ( Servido aberto )",
+    descricao: "Salsicha, bacon, calabresa, frango, catupirym milho, ervilha e batata palha",
+    preco: 3200,
+    imagemUrl: "https://i.ibb.co/SdCrS7V/Captura-de-tela-2023-08-07-170535.png"
+  },
+  {
+    nome: "X-BURGUER",
+    preco: 1600,
+    imagemUrl: "https://i.ibb.co/x3CyYg7/xcoracao.png"
+  },
+
   {
     nome: "Coca-Cola 1,5L",
     preco: 1200,
@@ -201,7 +266,7 @@ const produtos = [
   },
   {
     nome: "Guaraná 1,5L",
-    preco: 2399,
+    preco: 1000,
     imagemUrl: "https://th.bing.com/th/id/OIP.bHsGG_SsCh4I0TpJHQOEVwHaHa?pid=ImgDet&rs=1"
   },
   {

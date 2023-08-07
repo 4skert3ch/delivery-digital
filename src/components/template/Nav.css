@@ -14,7 +14,7 @@ aside.menu-area {
     color: #FFF;
     font-weight: 300;
     padding: 15px;
-}   
+}
 
 .menu a:hover {
     background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
@@ -34,13 +34,13 @@ a {
     height: 1vb;
 }
 
-#backStatus{
+#backStatus {
     position: relative;
     height: 25px;
     top: 31%;
 }
 
-#txtStatus{
+#txtStatus {
     position: relative;
     top: 4px;
 }
@@ -50,3 +50,9 @@ a {
     top: -10%;
 }
 
+.floating-label {
+    position: absolute;
+    animation: floatAnimation 5s infinite linear; /* Ajuste a duração conforme desejado */
+    left: 58%;
+    top: 25px;
+}

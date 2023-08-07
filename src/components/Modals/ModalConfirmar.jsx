@@ -178,14 +178,14 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                 <h3>Lista de Pedidos</h3>
                 {carrinho.map((produto, index) => (
                   <div key={index} className="form-group d-flex align-items-center justify-content-between">
-                    <div>
-                      <label htmlFor={`produto-${index}`} className="col-form-label">
+                    <div className="d-flex flex-column">
+                      <label htmlFor={`produto-${index}`} className="col-form-label mb-2">
                         {produto.nome} - R${(produto.preco / 100).toFixed(2)}
                       </label>
                       <input type="hidden" name={`Produto `} value={`Quantidade: ${produto.quantidade} | ${produto.nome} - R$${(produto.preco / 100).toFixed(2)} `} />
                     </div>
                     {produto.quantidade > 0 && (
-                      <div className="input-group">
+                      <div className="input-group input-group-sm">
                         <button
                           type="button"
                           className="btn btn-sm btn-danger"
@@ -194,8 +194,9 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                           -
                         </button>
                         <input
-                          className="form-control col-2"
+                          className="form-control col-3"
                           type="number"
+                          readOnly="true"
                           id={`produto-${index}`}
                           value={produto.quantidade}
                           onChange={(e) => handleChangeQuantidade(produto, parseInt(e.target.value))}
