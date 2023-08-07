@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputMask from "react-input-mask";
 import { NumericFormat } from "react-number-format";
-import './ModalConfirmar.css'
+import './ModalConfirmar.css';
 
 const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) => {
   const [formaPagamento, setFormaPagamento] = useState("");
   const [troco, setTroco] = useState("");
   const [mostrarTroco, setMostrarTroco] = useState(true);
+  const [dataHoraEnvio, setDataHoraEnvio] = useState(""); // Estado para armazenar a data e hora
+
+  useEffect(() => {
+    const agora = new Date();
+    const dataHoraFormatada = agora.toLocaleString("pt-BR");
+    setDataHoraEnvio(dataHoraFormatada);
+  }, []);
 
   const handleFormaPagamentoChange = (event) => {
     setFormaPagamento(event.target.value);
@@ -69,13 +76,14 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
-                Confirmação de Pedido
+                Confirmação do Pedido
               </h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
             </div>
             <div className="modal-body">
+              <input type="hidden" name="Data e Hora do Pedido" value={dataHoraEnvio} />
               <input type="hidden" name="_subject" value="ENTREGA : Delivery" />
-              <input type="hidden" name={`Valor a receber `} value={`R$${(totalAPagar / 100).toFixed(2)}`} />
+              <input type="hidden" name={`Valor a Receber `} value={`R$${(totalAPagar / 100).toFixed(2)}`} />
               <div className="form-group">
                 <label htmlFor="recipient-name" className="col-form-label">Nome</label>
                 <input className="form-control" type="text" name="Nome" id="recipient-name" required />
@@ -102,7 +110,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                   onChange={handleFormaPagamentoChange}
                   required
                 >
-                  <option value="">Selecione a forma de pagamento</option>
+                  <option value="">Selecione a Forma de Pagamento</option>
                   <option value="dinheiro">Dinheiro</option>
                   <option value="cartao">Cartão</option>
                   <option value="pix">Pix</option>
@@ -167,14 +175,14 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                 <input className="form-control" type="text" name="Endereço" id="recipient-endereco" required />
               </div>
               <div>
-                <h3>Lista de pedido</h3>
+                <h3>Lista de Pedidos</h3>
                 {carrinho.map((produto, index) => (
                   <div key={index} className="form-group d-flex align-items-center justify-content-between">
                     <div>
                       <label htmlFor={`produto-${index}`} className="col-form-label">
                         {produto.nome} - R${(produto.preco / 100).toFixed(2)}
                       </label>
-                      <input type="hidden" name={`Produto `} value={`Quantidade >  ${produto.quantidade} | ${produto.nome} - R$${(produto.preco / 100).toFixed(2)} `} />
+                      <input type="hidden" name={`Produto `} value={`Quantidade: ${produto.quantidade} | ${produto.nome} - R$${(produto.preco / 100).toFixed(2)} `} />
                     </div>
                     {produto.quantidade > 0 && (
                       <div className="input-group">
@@ -203,7 +211,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                     )}
                   </div>
                 ))}
-                <strong>Total a pagar: R${(totalAPagar / 100).toFixed(2)}</strong>
+                <strong>Total a Pagar: R${(totalAPagar / 100).toFixed(2)}</strong>
               </div>
               <div className="form-group">
                 <label htmlFor="recipient-observacao" className="col-form-label">Observação</label>
@@ -215,7 +223,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                 Fechar
               </button>
               <button type="button" className="btn btn-danger" onClick={limparCarrinho}>
-                Limpar pedido
+                Limpar Pedido
               </button>
               <button type="submit" className="btn btn-primary" disabled={valorZerado}>
                 Confirmar
