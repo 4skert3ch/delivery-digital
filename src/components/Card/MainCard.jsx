@@ -111,7 +111,7 @@ const MainCard = () => {
                   <p className="card-text">{`R$${(produto.preco / 100).toFixed(2)}`}</p>
                   <div className="d-flex flex-column align-items-center">
                     <button
-                      className="btn btn-primary btn-sm col-8 col-md-6"
+                      className="btn btn-primary btn-sm col-9 col-md-6"
                       onClick={() => adicionarAoCarrinho(produto)}
                     >
                       Adicionar
@@ -183,7 +183,7 @@ const produtos = [
     nome: "X-EGG",
     descricao: "Ovo, hambúrguer, queijo, presunto, alface, tomate, pepino, milho e ervilha",
     preco: 2900,
-    imagemUrl: "https://i.ibb.co/TLPhJzc/xegg.png"
+    imagemUrl: "https://i.ibb.co/DL22Q1h/Captura-de-tela-2023-08-07-164911.png"
   },
   {
     nome: "PORÇÃO PEROLAS / Inteira",
