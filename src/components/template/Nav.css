@@ -1,0 +1,52 @@
+aside.menu-area {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background-color: var(--bg-dark);
+    box-shadow:
+        2px 0 10px rgba(0, 0, 0, 0.12),
+        2px 0 10px rgba(0, 0, 0, 0.09);
+}
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: #FFF;
+    font-weight: 300;
+    padding: 15px;
+}   
+
+.menu a:hover {
+    background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
+}
+
+a {
+    position: relative;
+    left: 10px;
+}
+
+#btnRequest {
+    height: 5vb;
+    border-radius: 0;
+}
+
+#backContador {
+    height: 1vb;
+}
+
+#backStatus{
+    position: relative;
+    height: 25px;
+    top: 31%;
+}
+
+#txtStatus{
+    position: relative;
+    top: 4px;
+}
+
+.contador {
+    position: relative;
+    top: -10%;
+}
+
