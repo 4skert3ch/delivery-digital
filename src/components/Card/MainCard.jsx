@@ -144,12 +144,6 @@ const MainCard = () => {
 
 const produtos = [
   {
-    nome: "PORÇÃO PEROLAS / Meia",
-    descricao: "Alcatra, frango, calabresa, fritas, farofa, pepino e pão com queijo",
-    preco: 7600,
-    imagemUrl: "https://i.ibb.co/h2Xvfrw/perolasmeia.png"
-  },
-  {
     nome: "X-Calabresa",
     descricao: "Calabresa, hambúger, queijo, alface, tomate, pepino, milho e ervilha",
     preco: 2500,
@@ -184,6 +178,12 @@ const produtos = [
     descricao: "Ovo, hambúrguer, queijo, presunto, alface, tomate, pepino, milho e ervilha",
     preco: 2900,
     imagemUrl: "https://i.ibb.co/DL22Q1h/Captura-de-tela-2023-08-07-164911.png"
+  },
+  {
+    nome: "PORÇÃO PEROLAS / Meia",
+    descricao: "Alcatra, frango, calabresa, fritas, farofa, pepino e pão com queijo",
+    preco: 7600,
+    imagemUrl: "https://i.ibb.co/h2Xvfrw/perolasmeia.png"
   },
   {
     nome: "PORÇÃO PEROLAS / Inteira",
