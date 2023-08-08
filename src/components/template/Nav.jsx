@@ -12,15 +12,7 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
     setCarrinho([]);
   };
 
-  
 
-  useEffect(() => {
-    // Event listener para capturar o prompt de instalação
-    window.addEventListener('beforeinstallprompt', (event) => {
-      event.preventDefault();
-      setDeferredPrompt(event);
-    });
-    
   useEffect(() => {
     // Event listener para capturar o prompt de instalação
     window.addEventListener('beforeinstallprompt', (event) => {
