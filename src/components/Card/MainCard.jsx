@@ -144,6 +144,11 @@ const MainCard = () => {
 
 const produtos = [
   {
+    nome: "X-BURGUER",
+    preco: 1600,
+    imagemUrl: "https://i.ibb.co/4FhtpXV/Captura-de-tela-2023-08-07-170601.png"
+  },
+  {
     nome: "X-Calabresa",
     descricao: "Calabresa, hambúger, queijo, alface, tomate, pepino, milho e ervilha",
     preco: 2500,
@@ -243,12 +248,6 @@ const produtos = [
     preco: 3200,
     imagemUrl: "https://i.ibb.co/SdCrS7V/Captura-de-tela-2023-08-07-170535.png"
   },
-  {
-    nome: "X-BURGUER",
-    preco: 1600,
-    imagemUrl: "https://i.ibb.co/x3CyYg7/xcoracao.png"
-  },
-
   {
     nome: "Coca-Cola 1,5L",
     preco: 1200,
