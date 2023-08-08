@@ -50,9 +50,9 @@ a {
     top: -10%;
 }
 
-.floating-label {
+.instalarApp {
     position: absolute;
     animation: floatAnimation 5s infinite linear; /* Ajuste a duração conforme desejado */
-    left: 56%;
-    top: 25px;
+    left: 53%;
+    top: 23px;
 }
