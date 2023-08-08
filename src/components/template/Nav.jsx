@@ -12,6 +12,7 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
     setCarrinho([]);
   };
 
+  
 
   useEffect(() => {
     // Event listener para capturar o prompt de instalação
@@ -19,17 +20,24 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
       event.preventDefault();
       setDeferredPrompt(event);
     });
-
-    // Verificar se o aplicativo está instalado
-    window.addEventListener('appinstalled', () => {
-      setIsAppInstalled(true);
+    
+  useEffect(() => {
+    // Event listener para capturar o prompt de instalação
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault();
+      setDeferredPrompt(event);
     });
-
+  
+    // Verificar se o aplicativo está instalado apenas na montagem inicial
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      setIsAppInstalled(true);
+    }
+  
     // Atualiza o estado de isDesktop ao redimensionar a janela
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 768);
     };
-
+  
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
