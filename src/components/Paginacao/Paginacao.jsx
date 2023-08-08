@@ -1,5 +1,4 @@
 import React from "react";
-import "Paginicao.css";
 
 const Paginacao = ({ totalItens, itensPorPagina, paginaAtual, onChangePagina }) => {
   const numeroTotalPaginas = Math.ceil(totalItens / itensPorPagina);
