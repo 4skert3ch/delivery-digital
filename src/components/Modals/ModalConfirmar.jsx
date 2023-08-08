@@ -47,6 +47,29 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
     });
   };
 
+  const sendPedidoPorWhatsApp = () => {
+    const pedidoFormatado = carrinho
+      .map((produto, index) => `Produto ${index + 1}: ${produto.nome} - R$${(produto.preco / 100).toFixed(2)} x ${produto.quantidade}`)
+      .join('\n');
+  
+    const endereco = document.getElementById("recipient-endereco").value;
+    const metodoPagamento = document.getElementById("formaPagamento").value;
+    
+    let mensagem = `Olá! Gostaria de fazer o seguinte pedido:\n\n${pedidoFormatado}
+    \n Endereço : ${endereco} 
+    \n Método pagamento : ${metodoPagamento}`;
+  
+    if (formaPagamento === "dinheiro" && mostrarTroco) {
+      mensagem += `\n\n Troco para: ${formatarValorEmReais(troco)}`;
+    }
+  
+    mensagem += `\n\nTotal: R$${(totalAPagar / 100).toFixed(2)}`;
+  
+    const whatsappURL = `https://api.whatsapp.com/send?phone=47988481939&text=${encodeURIComponent(mensagem)}`;
+  
+    window.open(whatsappURL, '_blank');
+  };
+
   const handleChangeQuantidade = (produto, quantidade) => {
     quantidade = Math.max(quantidade, 0);
 
@@ -226,7 +249,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
               <button type="button" className="btn btn-danger" onClick={limparCarrinho}>
                 Limpar Pedido
               </button>
-              <button type="submit" className="btn btn-primary" disabled={valorZerado}>
+              <button type="submit" className="btn btn-primary" disabled={valorZerado} onClick={sendPedidoPorWhatsApp}>
                 Confirmar
               </button>
             </div>
