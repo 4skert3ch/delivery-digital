@@ -47,6 +47,29 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
     });
   };
 
+  const sendPedidoPorWhatsApp = () => {
+    const pedidoFormatado = carrinho
+      .map((produto, index) => `Produto ${index + 1}: ${produto.nome} - R$${(produto.preco / 100).toFixed(2)} x ${produto.quantidade}`)
+      .join('\n');
+  
+    const endereco = document.getElementById("recipient-endereco").value;
+    const metodoPagamento = document.getElementById("formaPagamento").value;
+    
+    let mensagem = `Olá! Gostaria de fazer o seguinte pedido:\n\n${pedidoFormatado}
+    \n Endereço : ${endereco} 
+    \n Método pagamento : ${metodoPagamento}`;
+  
+    if (formaPagamento === "dinheiro" && mostrarTroco) {
+      mensagem += `\n\n Troco para: ${formatarValorEmReais(troco)}`;
+    }
+  
+    mensagem += `\n\nTotal: R$${(totalAPagar / 100).toFixed(2)}`;
+  
+    const whatsappURL = `https://api.whatsapp.com/send?phone=47988481939&text=${encodeURIComponent(mensagem)}`;
+  
+    window.open(whatsappURL, '_blank');
+  };
+
   const handleChangeQuantidade = (produto, quantidade) => {
     quantidade = Math.max(quantidade, 0);
 
@@ -70,7 +93,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
   };
 
   return (
-    <form action="https://formspree.io/f/mqkobadr" method="POST">
+    <form action="https://formspree.io/f/moqoeqaa" method="POST">
       <div className="modal fade" id="modalConfirmar" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
@@ -178,14 +201,14 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                 <h3>Lista de Pedidos</h3>
                 {carrinho.map((produto, index) => (
                   <div key={index} className="form-group d-flex align-items-center justify-content-between">
-                    <div>
-                      <label htmlFor={`produto-${index}`} className="col-form-label">
+                    <div className="d-flex flex-column">
+                      <label htmlFor={`produto-${index}`} className="col-form-label mb-2">
                         {produto.nome} - R${(produto.preco / 100).toFixed(2)}
                       </label>
                       <input type="hidden" name={`Produto `} value={`Quantidade: ${produto.quantidade} | ${produto.nome} - R$${(produto.preco / 100).toFixed(2)} `} />
                     </div>
                     {produto.quantidade > 0 && (
-                      <div className="input-group">
+                      <div className="input-group input-group-sm">
                         <button
                           type="button"
                           className="btn btn-sm btn-danger"
@@ -194,8 +217,9 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                           -
                         </button>
                         <input
-                          className="form-control col-2"
+                          className="form-control col-3"
                           type="number"
+                          readOnly="true"
                           id={`produto-${index}`}
                           value={produto.quantidade}
                           onChange={(e) => handleChangeQuantidade(produto, parseInt(e.target.value))}
@@ -225,7 +249,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
               <button type="button" className="btn btn-danger" onClick={limparCarrinho}>
                 Limpar Pedido
               </button>
-              <button type="submit" className="btn btn-primary" disabled={valorZerado}>
+              <button type="submit" className="btn btn-primary" disabled={valorZerado} onClick={sendPedidoPorWhatsApp}>
                 Confirmar
               </button>
             </div>
