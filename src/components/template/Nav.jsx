@@ -62,7 +62,7 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
               {isAberto ? 'Estabelecimento aberto' : 'Estabelecimento fechado'}
             </strong>
           </span>
-
+  
           <a className="col-12">
             <div className="contador">
               <label id="backContador">
@@ -72,7 +72,11 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
                 </p>
               </label>
               {!isDesktop && !isAppInstalled && (
-                <button className="btn btn-success instalarApp" onClick={instalarApp}>
+                <button
+                  className="btn btn-success instalarApp"
+                  onClick={instalarApp}
+                  style={{ display: isAppInstalled ? 'none' : 'block' }}
+                >
                   Instalar aplicativo
                 </button>
               )}
