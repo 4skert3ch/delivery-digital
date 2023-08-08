@@ -167,16 +167,16 @@ const produtos = [
     imagemUrl: "https://i.ibb.co/fDP2FV9/xfrango.png"
   },
   {
-    nome: "X-Bacon",
-    descricao: "Coração, queijo, alface, tomate, pepino, milho e ervilha",
-    preco: 2900,
-    imagemUrl: "https://i.ibb.co/1R3mbsz/xbacon.png"
-  },
-  {
     nome: "X-Coração",
     descricao: "Hambúrguer, bacon, queijo, preseunto, alface, tomate, pepino, milho e ervilha",
     preco: 2600,
     imagemUrl: "https://i.ibb.co/x3CyYg7/xcoracao.png"
+  },
+  {
+    nome: "X-Bacon",
+    descricao: "Coração, queijo, alface, tomate, pepino, milho e ervilha",
+    preco: 2900,
+    imagemUrl: "https://i.ibb.co/1R3mbsz/xbacon.png"
   },
   {
     nome: "X-Alcatra",
