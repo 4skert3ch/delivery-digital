@@ -66,7 +66,7 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
           <a className="col-12">
             <div className="contador">
               <label id="backContador">
-                Total a pagar TEESTE
+                Total a pagar
                 <p id="contador" className="form-control">
                   R${(totalAPagar / 100).toFixed(2)}
                 </p>
