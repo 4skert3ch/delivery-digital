@@ -12,8 +12,6 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
     setCarrinho([]);
   };
 
-  const dataAtual = new Date();
-  const horaAtual = dataAtual.getHours();
 
   useEffect(() => {
     // Event listener para capturar o prompt de instalação
@@ -65,7 +63,7 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
             </strong>
           </span>
 
-          <a href="https://askertech-1d73c38e21b5.herokuapp.com" className="col-12">
+          <a className="col-12">
             <div className="contador">
               <label id="backContador">
                 Total a pagar
