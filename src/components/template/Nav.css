@@ -53,6 +53,6 @@ a {
 .floating-label {
     position: absolute;
     animation: floatAnimation 5s infinite linear; /* Ajuste a duração conforme desejado */
-    left: 60%;
+    left: 56%;
     top: 25px;
 }
