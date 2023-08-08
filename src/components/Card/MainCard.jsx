@@ -149,6 +149,12 @@ const produtos = [
     imagemUrl: "https://i.ibb.co/4FhtpXV/Captura-de-tela-2023-08-07-170601.png"
   },
   {
+    nome: "X-EGG",
+    descricao: "Ovo, hambúrguer, queijo, presunto, alface, tomate, pepino, milho e ervilha",
+    preco: 2300,
+    imagemUrl: "https://i.ibb.co/DL22Q1h/Captura-de-tela-2023-08-07-164911.png"
+  },
+  {
     nome: "X-Calabresa",
     descricao: "Calabresa, hambúger, queijo, alface, tomate, pepino, milho e ervilha",
     preco: 2500,
@@ -157,7 +163,7 @@ const produtos = [
   {
     nome: "X-Frango",
     descricao: "Frango, queijo, alface, tomate, pepino, milho e ervilha",
-    preco: 2399,
+    preco: 2600,
     imagemUrl: "https://i.ibb.co/fDP2FV9/xfrango.png"
   },
   {
@@ -178,34 +184,6 @@ const produtos = [
     preco: 2900,
     imagemUrl: "https://i.ibb.co/JxLz743/xalcatra.png"
   },
-  {
-    nome: "X-EGG",
-    descricao: "Ovo, hambúrguer, queijo, presunto, alface, tomate, pepino, milho e ervilha",
-    preco: 2900,
-    imagemUrl: "https://i.ibb.co/DL22Q1h/Captura-de-tela-2023-08-07-164911.png"
-  },
-  {
-    nome: "PORÇÃO PEROLAS / Meia",
-    descricao: "Alcatra, frango, calabresa, fritas, farofa, pepino e pão com queijo",
-    preco: 7600,
-    imagemUrl: "https://i.ibb.co/h2Xvfrw/perolasmeia.png"
-  },
-  {
-    nome: "PORÇÃO PEROLAS / Inteira",
-    preco: 9800,
-    imagemUrl: "https://th.bing.com/th/id/OIP.wSYDezrpVMgaw-oM5nHxMwHaDz?pid=ImgDet&rs=1"
-  },
-  {
-    nome: "BATATA FRITA / Meia",
-    preco: 2100,
-    imagemUrl: "https://i.ibb.co/znQXv6Q/batatameia.png"
-  },
-  {
-    nome: "BATATA FRITA / Inteira",
-    preco: 3300,
-    imagemUrl: "https://th.bing.com/th/id/OIP.LkjpcBTtSb91JgHvuNolLAHaE7?pid=ImgDet&rs=1"
-  },
-
   {
     nome: "MISTO QUENTE",
     descricao: "Queijo e presunto",
@@ -243,10 +221,31 @@ const produtos = [
     imagemUrl: "https://i.ibb.co/z6kz069/Captura-de-tela-2023-08-07-170314.png"
   },
   {
-    nome: "Dog pérolas ( Servido aberto )",
+    nome: "DOG PEROLAS ( Servido aberto )",
     descricao: "Salsicha, bacon, calabresa, frango, catupirym milho, ervilha e batata palha",
     preco: 3200,
     imagemUrl: "https://i.ibb.co/SdCrS7V/Captura-de-tela-2023-08-07-170535.png"
+  },
+  {
+    nome: "PORÇÃO PEROLAS / Meia",
+    descricao: "Alcatra, frango, calabresa, fritas, farofa, pepino e pão com queijo",
+    preco: 7600,
+    imagemUrl: "https://i.ibb.co/h2Xvfrw/perolasmeia.png"
+  },
+  {
+    nome: "PORÇÃO PEROLAS / Inteira",
+    preco: 9800,
+    imagemUrl: "https://th.bing.com/th/id/OIP.wSYDezrpVMgaw-oM5nHxMwHaDz?pid=ImgDet&rs=1"
+  },
+  {
+    nome: "BATATA FRITA / Meia",
+    preco: 2100,
+    imagemUrl: "https://i.ibb.co/znQXv6Q/batatameia.png"
+  },
+  {
+    nome: "BATATA FRITA / Inteira",
+    preco: 3300,
+    imagemUrl: "https://th.bing.com/th/id/OIP.LkjpcBTtSb91JgHvuNolLAHaE7?pid=ImgDet&rs=1"
   },
   {
     nome: "Coca-Cola 1,5L",
