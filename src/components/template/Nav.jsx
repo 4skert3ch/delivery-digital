@@ -63,7 +63,7 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
             </strong>
           </span>
   
-          <a className="col-12">
+          {/* <a className="col-12">
             <div className="contador">
               <label id="backContador">
                 Total a pagar
@@ -81,7 +81,7 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
                 </button>
               )}
             </div>
-          </a>
+          </a> */}
           <button
             type="button"
             className="btn btn-success col-6"
