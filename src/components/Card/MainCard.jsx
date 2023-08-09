@@ -8,7 +8,7 @@ const MainCard = () => {
   const [totalAPagar, setTotalAPagar] = useState(0);
   const [carrinho, setCarrinho] = useState([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
-  const produtosPorPagina = 18;
+  const produtosPorPagina = 20;
   const horaAbertura = 18; // Replace 8 with the actual opening hour
   const horaFechamento = 21; // Replace 22 with the actual closing hour
 
@@ -236,6 +236,16 @@ const produtos = [
     nome: "PORÇÃO PEROLAS / Inteira",
     preco: 9800,
     imagemUrl: "https://th.bing.com/th/id/OIP.wSYDezrpVMgaw-oM5nHxMwHaDz?pid=ImgDet&rs=1"
+  },
+  {
+    nome: "FRITAS / Meia - Com Bacon e Chefdar",
+    preco: 3900,
+    imagemUrl: "https://i.ibb.co/4j3jcLW/Imagem-do-Whats-App-de-2023-08-08-s-20-50-50.jpg"
+  },
+  {
+    nome: "FRITAS / Inteira - Com Bacon e Chefdar",
+    preco: 5100,
+    imagemUrl: "https://i.ibb.co/4j3jcLW/Imagem-do-Whats-App-de-2023-08-08-s-20-50-50.jpg"
   },
   {
     nome: "BATATA FRITA / Meia",
