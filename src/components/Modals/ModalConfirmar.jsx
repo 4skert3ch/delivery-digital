@@ -33,7 +33,9 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
     setTroco(values.floatValue || "");
   };
 
-  const valorZerado = totalAPagar === 0;
+  const metodoPagamento = document.getElementById("formaPagamento").value;
+  const valorZerado = totalAPagar === 0 || metodoPagamento === "dinheiro" && troco === "";
+
 
   const limparCarrinho = () => {
     setCarrinho([]);
