@@ -2,50 +2,56 @@ import './Nav.css';
 import React, { useEffect, useState } from 'react';
 
 const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
-  const [deferredPrompt, setDeferredPrompt] = useState(null); // State para armazenar o prompt de instalação
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
   const [isAppInstalled, setIsAppInstalled] = useState(false);
 
   const valorZerado = totalAPagar === 0;
+
   const limparPedido = () => {
     setTotalAPagar(0);
     setCarrinho([]);
   };
 
-
   useEffect(() => {
-    // Event listener para capturar o prompt de instalação
-    window.addEventListener('beforeinstallprompt', (event) => {
+    const handleBeforeInstallPrompt = (event) => {
       event.preventDefault();
       setDeferredPrompt(event);
-    });
-  
-    // Verificar se o aplicativo está instalado apenas na montagem inicial
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
     if (window.matchMedia('(display-mode: standalone)').matches) {
       setIsAppInstalled(true);
     }
-  
-    // Atualiza o estado de isDesktop ao redimensionar a janela
+
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 768);
     };
-  
+
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const instalarApp = () => {
-    // Se houver um prompt de instalação, exiba-o quando o botão for clicado
     if (deferredPrompt) {
       deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('Usuário aceitou a instalação');
-        } else {
-          console.log('Usuário rejeitou a instalação');
-        }
-        setDeferredPrompt(null);
-      });
+      deferredPrompt.userChoice
+        .then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('Usuário aceitou a instalação');
+          } else {
+            console.log('Usuário rejeitou a instalação');
+          }
+          setDeferredPrompt(null);
+        })
+        .catch((error) => {
+          console.error('Erro ao tratar a escolha do usuário:', error);
+        });
     }
   };
 
