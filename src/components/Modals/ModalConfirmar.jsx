@@ -33,9 +33,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
     setTroco(values.floatValue || "");
   };
 
-  const metodoPagamento = document.getElementById("formaPagamento").value;
-  const valorZerado = totalAPagar === 0 || metodoPagamento === "dinheiro" && troco === "";
-
+  const valorZerado = totalAPagar === 0 || (formaPagamento === "dinheiro" && troco === "");
 
   const limparCarrinho = () => {
     setCarrinho([]);
@@ -114,14 +112,13 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                 <input className="form-control" type="text" name="Nome" id="recipient-name" required />
               </div>
               <div className="form-group">
-                <label htmlFor="recipient-telefone" className="col-form-label">Telefone</label>
-                <InputMask
-                  mask="(99) 99999-9999"
-                  maskChar=""
+                <label htmlFor="formaPagamento" className="col-form-label">Forma de Pagamento</label>
+                <select
                   className="form-control"
-                  type="text"
-                  name="Telefone"
-                  id="recipient-telefone"
+                  id="formaPagamento"
+                  name="Forma de Pagamento"
+                  value={formaPagamento}
+                  onChange={handleFormaPagamentoChange}
                   required
                 />
               </div>
