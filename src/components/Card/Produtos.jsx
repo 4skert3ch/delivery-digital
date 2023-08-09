@@ -151,5 +151,6 @@ const produtos = [
     },
     // Adicione caminhos relativos para as imagens dos demais produtos conforme necessário
   ];
+
   
   export default produtos;
