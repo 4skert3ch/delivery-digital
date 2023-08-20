@@ -71,7 +71,7 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
                   R${(totalAPagar / 100).toFixed(2)}
                 </p>
               </label>
-              {!isDesktop && !isAppInstalled && (
+              {/* {!isDesktop && !isAppInstalled && (
                 <button
                   className="btn btn-success instalarApp"
                   onClick={instalarApp}
@@ -79,7 +79,7 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
                 >
                   Instalar aplicativo
                 </button>
-              )} 
+              )}  */}
             </div>
           </a>
           <button
