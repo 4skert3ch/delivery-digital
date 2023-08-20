@@ -6,12 +6,6 @@ const produtos = [
       imagemUrl: "https://i.ibb.co/4FhtpXV/Captura-de-tela-2023-08-07-170601.png"
     },
     {
-      nome: "X-EGG",
-      descricao: "Ovo, hambúrguer, queijo, presunto, alface, tomate, pepino, milho e ervilha",
-      preco: 2300,
-      imagemUrl: "https://i.ibb.co/DL22Q1h/Captura-de-tela-2023-08-07-164911.png"
-    },
-    {
       nome: "X-Calabresa",
       descricao: "Calabresa, hambúger, queijo, alface, tomate, pepino, milho e ervilha",
       preco: 2500,
@@ -21,49 +15,13 @@ const produtos = [
       nome: "X-Frango",
       descricao: "Frango, queijo, alface, tomate, pepino, milho e ervilha",
       preco: 2600,
-      imagemUrl: "https://i.ibb.co/fDP2FV9/xfrango.png"
-    },
-    {
-      nome: "X-Coração",
-      descricao: "Hambúrguer, bacon, queijo, preseunto, alface, tomate, pepino, milho e ervilha",
-      preco: 2600,
-      imagemUrl: "https://i.ibb.co/x3CyYg7/xcoracao.png"
-    },
-    {
-      nome: "X-Bacon",
-      descricao: "Coração, queijo, alface, tomate, pepino, milho e ervilha",
-      preco: 2900,
-      imagemUrl: "https://i.ibb.co/1R3mbsz/xbacon.png"
-    },
-    {
-      nome: "X-Alcatra",
-      descricao: "Alcatra, queijo, alface, tomate, pepino, milho e ervilha",
-      preco: 2900,
-      imagemUrl: "https://i.ibb.co/JxLz743/xalcatra.png"
-    },
-    {
-      nome: "MISTO QUENTE",
-      descricao: "Queijo e presunto",
-      preco: 1500,
-      imagemUrl: "https://i.ibb.co/jrh8VFj/Captura-de-tela-2023-08-07-170250.png"
-    },
-    {
-      nome: "DOG TRADICIONAL",
-      descricao: "Salsicha, milho, ervilha e batata palha.",
-      preco: 1900,
-      imagemUrl: "https://i.ibb.co/F8K8cMh/Captura-de-tela-2023-08-07-170506.png"
+      imagemUrl: "https://www.receiteria.com.br/wp-content/uploads/receitas-de-x-frango-0.png"
     },
     {
       nome: "DOG CALABRESA",
       descricao: "Salsicha, calabresa, milho, ervilha e batata palha.",
       preco: 2500,
       imagemUrl: "https://i.ibb.co/vmHJF60/Captura-de-tela-2023-08-07-170334.png"
-    },
-    {
-      nome: "DOG BACON",
-      descricao: "Salsicha, bacon, milho, ervilha, e batata palha",
-      preco: 2600,
-      imagemUrl: "https://i.ibb.co/S3mN5Jw/Captura-de-tela-2023-08-07-170354.png"
     },
     {
       nome: "DOG FRANGO",
@@ -76,33 +34,6 @@ const produtos = [
       descricao: "Salsicha, presunto, queijo, catupiry, tomate, orégano, milho, ervilha e batata palha",
       preco: 2800,
       imagemUrl: "https://i.ibb.co/z6kz069/Captura-de-tela-2023-08-07-170314.png"
-    },
-    {
-      nome: "DOG PEROLAS ( Servido aberto )",
-      descricao: "Salsicha, bacon, calabresa, frango, catupirym milho, ervilha e batata palha",
-      preco: 3200,
-      imagemUrl: "https://i.ibb.co/SdCrS7V/Captura-de-tela-2023-08-07-170535.png"
-    },
-    {
-      nome: "PORÇÃO PEROLAS / Meia",
-      descricao: "Alcatra, frango, calabresa, fritas, farofa, pepino e pão com queijo",
-      preco: 7600,
-      imagemUrl: "https://i.ibb.co/h2Xvfrw/perolasmeia.png"
-    },
-    {
-      nome: "PORÇÃO PEROLAS / Inteira",
-      preco: 9800,
-      imagemUrl: "https://th.bing.com/th/id/OIP.wSYDezrpVMgaw-oM5nHxMwHaDz?pid=ImgDet&rs=1"
-    },
-    {
-      nome: "FRITAS / Meia - Com Bacon e Chefdar",
-      preco: 3900,
-      imagemUrl: "https://i.ibb.co/4j3jcLW/Imagem-do-Whats-App-de-2023-08-08-s-20-50-50.jpg"
-    },
-    {
-      nome: "FRITAS / Inteira - Com Bacon e Chefdar",
-      preco: 5100,
-      imagemUrl: "https://i.ibb.co/4j3jcLW/Imagem-do-Whats-App-de-2023-08-08-s-20-50-50.jpg"
     },
     {
       nome: "BATATA FRITA / Meia",

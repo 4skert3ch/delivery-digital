@@ -112,13 +112,14 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
                 <input className="form-control" type="text" name="Nome" id="recipient-name" required />
               </div>
               <div className="form-group">
-                <label htmlFor="formaPagamento" className="col-form-label">Forma de Pagamento</label>
-                <select
+                <label htmlFor="recipient-telefone" className="col-form-label">Telefone</label>
+                <InputMask
+                  mask="(99) 99999-9999"
+                  maskChar=""
                   className="form-control"
-                  id="formaPagamento"
-                  name="Forma de Pagamento"
-                  value={formaPagamento}
-                  onChange={handleFormaPagamentoChange}
+                  type="text"
+                  name="Telefone"
+                  id="recipient-telefone"
                   required
                 />
               </div>
