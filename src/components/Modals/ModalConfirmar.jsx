@@ -65,7 +65,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
   
     mensagem += `\n\nTotal: R$${(totalAPagar / 100).toFixed(2)}`;
   
-    const whatsappURL = `https://api.whatsapp.com/send?phone=+554796382724&text=${encodeURIComponent(mensagem)}`;
+    const whatsappURL = `https://api.whatsapp.com/send?phone=+5547981914241&text=${encodeURIComponent(mensagem)}`;
   
     window.open(whatsappURL, '_blank');
   };
