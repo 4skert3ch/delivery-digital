@@ -79,7 +79,7 @@ const Navbar = ({ totalAPagar, setTotalAPagar, setCarrinho, isAberto }) => {
                 >
                   Instalar aplicativo
                 </button>
-              )}  */}
+              )} */}
             </div>
           </a>
           <button
