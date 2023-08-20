@@ -10,7 +10,7 @@ const MainCard = () => {
   const [totalAPagar, setTotalAPagar] = useState(0);
   const [carrinho, setCarrinho] = useState([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
-  const produtosPorPagina = 20;
+  const produtosPorPagina = 6;
 
   const nomesDasPaginas = ["Comida", "Bebidas", "Hotdog"];
   const horaAtual = new Date().getHours();
