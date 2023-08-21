@@ -93,7 +93,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
   };
 
   return (
-    <form action="https://formspree.io/f/moqoeqaa" method="POST">
+    <form action="https://formspree.io/f/mqkobadr" method="POST">
       <div className="modal fade" id="modalConfirmar" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
