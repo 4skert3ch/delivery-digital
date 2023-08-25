@@ -20,6 +20,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
     setMostrarTroco(true);
   };
 
+
   const handleNaoTemTrocoClick = () => {
     setTroco("");
     setMostrarTroco(false);
@@ -33,12 +34,12 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
     setTroco(values.floatValue || "");
   };
 
-  const valorZerado = totalAPagar === 0;
-
   const limparCarrinho = () => {
     setCarrinho([]);
     setTotalAPagar(0);
   };
+
+  const valorZerado = totalAPagar === 0 || !troco && (formaPagamento === "dinheiro" && mostrarTroco) ;
 
   const formatarValorEmReais = (valor) => {
     return valor.toLocaleString("pt-BR", {
@@ -65,7 +66,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
   
     mensagem += `\n\nTotal: R$${(totalAPagar / 100).toFixed(2)}`;
   
-    const whatsappURL = `https://api.whatsapp.com/send?phone=47981914241&text=${encodeURIComponent(mensagem)}`;
+    const whatsappURL = `https://api.whatsapp.com/send?phone=4791814241&text=${encodeURIComponent(mensagem)}`;
   
     window.open(whatsappURL, '_blank');
   };
