@@ -247,7 +247,7 @@ const ModalConfirmar = ({ carrinho, totalAPagar, setTotalAPagar, setCarrinho }) 
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
                 Fechar
               </button>
-              <button type="button" className="btn btn-danger" onClick={limparCarrinho}>
+              <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={limparCarrinho}>
                 Limpar Pedido
               </button>
               <button type="submit" className="btn btn-primary" disabled={valorZerado} onClick={sendPedidoPorWhatsApp}>
