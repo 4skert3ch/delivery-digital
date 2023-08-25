@@ -6,19 +6,25 @@ import ModalConfirmar from "../Modals/ModalConfirmar";
 import produtos from "./Produtos"
 import horariosFuncionamento from "./Funcionamento"
 
+const produtosPorCategoria = {
+  "Comida": produtos.filter(produto => produto.categoria === "Comida"),
+  "Bebidas": produtos.filter(produto => produto.categoria === "Bebidas"),
+};
+
 const MainCard = () => {
   const [totalAPagar, setTotalAPagar] = useState(0);
   const [carrinho, setCarrinho] = useState([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
-  const produtosPorPagina = 20;
+  const produtosPorPagina = 8;
 
-  const nomesDasPaginas = ["Comida", "Bebidas", "Hotdog"];
+  const nomesDasPaginas = ["Comida", "Bebidas"];
   const horaAtual = new Date().getHours();
   const diaAtual = new Date().getDay(); // 0 (Domingo) a 6 (Sábado)
   const horarioDiaAtual = horariosFuncionamento[diaAtual];
-  
+
   const isAberto =
     horaAtual >= horarioDiaAtual.abertura && horaAtual <= horarioDiaAtual.fechamento;
+
 
   useEffect(() => {
     document.title = nomesDasPaginas[paginaAtual - 1];
@@ -37,10 +43,6 @@ const MainCard = () => {
     }
 
     setTotalAPagar((prevTotal) => prevTotal + produto.preco);
-  };
-
-  const handleChangePagina = (pagina) => {
-    setPaginaAtual(pagina);
   };
 
   const removerUmDoCarrinho = (produto) => {
@@ -66,6 +68,10 @@ const MainCard = () => {
     setTotalAPagar(0);
   };
 
+  const handleChangePagina = (pagina) => {
+    setPaginaAtual(pagina);
+  };
+
   return (
     <>
       <ModalConfirmar
@@ -83,13 +89,13 @@ const MainCard = () => {
         isAberto={isAberto}
       />
       <Main>
+        <h2>{nomesDasPaginas[paginaAtual - 1]}</h2>
         <Paginacao
-          totalItens={produtos.length}
+          totalItens={produtosPorCategoria[nomesDasPaginas[paginaAtual - 1]].length}
           itensPorPagina={produtosPorPagina}
           paginaAtual={paginaAtual}
           onChangePagina={handleChangePagina}
         />
-        <h2>{nomesDasPaginas[paginaAtual - 1]}</h2>
         <div className="d-flex flex-wrap gap-3">
           {produtos.slice((paginaAtual - 1) * produtosPorPagina, paginaAtual * produtosPorPagina).map((produto, index) => {
             const produtoExistente = carrinho.find((item) => item.nome === produto.nome);
